@@ -1,6 +1,6 @@
 # AkkaPrismDemo
 
-This project is a loose fork from [mkb137/AkkaPrismUnityDemo](https://github.com/mkb137/AkkaPrismUnityDemo).  It is a stock ticker demo showing Prism, Unity, and Akka.NET.  I take no responsibility for the code quality.  I merely copypasted the code into this solution to get it to build and run.
+This project is a loose fork from [mkb137/AkkaPrismUnityDemo](https://github.com/mkb137/AkkaPrismUnityDemo).  It is a stock ticker demo showing Prism, Unity, and Akka.NET.  I take no responsibility for the code quality.  I merely copy/pasted the code into this solution to get it to build and run.
 
 ## Getting Started
 
@@ -33,4 +33,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to Miek Bennett.  In no way am I taking credit for this code.  I merely dumped it into a new project.  Perhaps in the future I will build from it but most likely I will not.
+* Hat tip to Mike Bennett.  In no way am I taking credit for this code.  I merely dumped it into a new project.  Perhaps in the future I will build from it but most likely I will not.
