@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaPrismDemo", "AkkaPrismDemo\AkkaPrismDemo.csproj", "{3F1A3FC3-D5FF-48F0-BD7A-EE3B8B50CDE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaPrismDemo.Module.Stocks", "AkkaPrismDemo.Module.Stocks\AkkaPrismDemo.Module.Stocks.csproj", "{7A1BBA09-51F0-4750-8B8D-EA8A33EFBB16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaPrismDemo.Core", "AkkaPrismDemo.Core\AkkaPrismDemo.Core.csproj", "{87ADE534-1E62-4B28-916E-B1499B630D0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3F1A3FC3-D5FF-48F0-BD7A-EE3B8B50CDE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F1A3FC3-D5FF-48F0-BD7A-EE3B8B50CDE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F1A3FC3-D5FF-48F0-BD7A-EE3B8B50CDE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A1BBA09-51F0-4750-8B8D-EA8A33EFBB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A1BBA09-51F0-4750-8B8D-EA8A33EFBB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A1BBA09-51F0-4750-8B8D-EA8A33EFBB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A1BBA09-51F0-4750-8B8D-EA8A33EFBB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87ADE534-1E62-4B28-916E-B1499B630D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87ADE534-1E62-4B28-916E-B1499B630D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87ADE534-1E62-4B28-916E-B1499B630D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87ADE534-1E62-4B28-916E-B1499B630D0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

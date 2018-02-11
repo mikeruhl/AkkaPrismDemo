@@ -4,20 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F1A3FC3-D5FF-48F0-BD7A-EE3B8B50CDE6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{7A1BBA09-51F0-4750-8B8D-EA8A33EFBB16}</ProjectGuid>
+    <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AkkaPrismDemo</RootNamespace>
-    <AssemblyName>AkkaPrismDemo</AssemblyName>
+    <RootNamespace>AkkaPrismDemo.Module.Stocks</RootNamespace>
+    <AssemblyName>AkkaPrismDemo.Module.Stocks</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,7 +25,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -52,26 +49,25 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ActorModels\ActorSystemReference.cs" />
+    <Compile Include="ActorModels\Actors\StockActor.cs" />
+    <Compile Include="ActorModels\Actors\StockPriceLookupActor.cs" />
+    <Compile Include="ActorModels\Actors\StocksCoordinatorActor.cs" />
+    <Compile Include="ActorModels\Actors\UI\LineChartingActor.cs" />
+    <Compile Include="ActorModels\Actors\UI\StockToggleButtonActor.cs" />
+    <Compile Include="ActorModels\Messages\AddChartSeriesMessage.cs" />
+    <Compile Include="ActorModels\Messages\RefreshStockPriceMessage.cs" />
+    <Compile Include="ActorModels\Messages\RemoveChartSeriesMessage.cs" />
+    <Compile Include="ActorModels\Messages\StockPriceMessage.cs" />
+    <Compile Include="ActorModels\Messages\SubscribeToNewStockPricesMessage.cs" />
+    <Compile Include="ActorModels\Messages\ToggleStockMessage.cs" />
+    <Compile Include="ActorModels\Messages\UnsubscribeFromNewStockPricesMessages.cs" />
+    <Compile Include="ActorModels\Messages\UnwatchStockMessage.cs" />
+    <Compile Include="ActorModels\Messages\UpdatedStockPriceMessage.cs" />
+    <Compile Include="ActorModels\Messages\WatchStockMessage.cs" />
+    <Compile Include="ExternalServices\IStockPriceServiceGateway.cs" />
+    <Compile Include="ExternalServices\RandomStockPriceServiceGateway.cs" />
+    <Compile Include="StocksModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +81,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\StockChartViewModel.cs" />
+    <Compile Include="ViewModels\StockToggleButtonViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="Views\StockChart.xaml.cs">
+      <DependentUpon>StockChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StockToggleButton.xaml.cs">
+      <DependentUpon>StockToggleButton.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -93,22 +98,50 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="log4net">
-      <Version>2.0.8</Version>
-    </PackageReference>
-    <PackageReference Include="Prism.Unity" Version="6.3.0" />
+    <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AkkaPrismDemo.Core\AkkaPrismDemo.Core.csproj">
       <Project>{87ade534-1e62-4b28-916e-b1499b630d0d}</Project>
       <Name>AkkaPrismDemo.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AkkaPrismDemo.Module.Stocks\AkkaPrismDemo.Module.Stocks.csproj">
-      <Project>{7a1bba09-51f0-4750-8b8d-ea8a33efbb16}</Project>
-      <Name>AkkaPrismDemo.Module.Stocks</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\StockChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StockToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Akka">
+      <Version>1.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="Akka.DI.Core">
+      <Version>1.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="Akka.DI.Unity">
+      <Version>1.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Core">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Wpf">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Unity" Version="6.3.0" />
+    <PackageReference Include="Prism.Wpf">
+      <Version>6.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Mvc">
+      <Version>5.0.12</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
